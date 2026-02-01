@@ -1,0 +1,114 @@
+@import "mocha.css";
+
+* {
+  padding: 0;
+  margin: 0;
+  min-height: 0;
+  border-radius: 0;
+  border: none;
+  text-shadow: none;
+  transition: none;
+  box-shadow: none;
+  font-family: "M+1Code Nerd Font";
+  font-size: 12px;
+}
+
+window#waybar {
+  color: @text;
+  background: @crust;
+}
+
+#mpris,
+#window,
+#cpu,
+#backlight,
+#memory,
+#wireplumber,
+#wireplumber.muted,
+#battery,
+#battery.critical,
+#battery.warning,
+#network,
+#custom-gpu,
+#clock {
+  color: @text;
+  margin-right: 3px;
+  margin-left: 3px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-right: 4px;
+  padding-left: 4px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+#hyprland-workspaces {
+  margin: 0;
+}
+
+#workspaces button {
+  color: @text;
+  padding: 0px;
+}
+
+#workspaces button.active {
+  color: @rosewater;
+  padding: 0px;
+}
+
+#workspaces button:hover {
+  background: @surface0;
+  padding: 0px;
+}
+
+
+#window {
+  color: #d3869b;
+}
+
+#tray {
+  padding: 5px;
+}
+
+#cpu {
+  color: @peach;
+}
+
+#memory {
+  color: @yellow;
+}
+
+#custom-gpu {
+  color: @green;
+}
+
+#wireplumber.sink {
+  color: @sapphire;
+}
+
+#wireplumber.source {
+  color: @lavender;
+}
+
+#wireplumber.muted {
+  color: @text;
+}
+
+#mpris {
+  color: @pink;
+}
+
+#clock {
+  color: @mauve;
+}
+
+#network {
+  color: @red;
+}
+
+tooltip {
+  background: @base;
+}
+tooltip label {
+  color: @text;
+}

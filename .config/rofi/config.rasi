@@ -1,0 +1,17 @@
+@theme "catppuccin-default"
+configuration {
+  font: "IosevkaTerm Nerd Font 12";
+  
+  modi: "combi,drun,window";
+  combi-modi: "window,drun";
+  show: "combi";
+
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
+}

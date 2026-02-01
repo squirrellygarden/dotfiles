@@ -1,0 +1,8 @@
+[plugin]
+prepend_previewers = [
+  { name = "*.kra", run = "krita" }
+]
+
+prepend_preloaders = [
+  { name = "*.kra", run = "krita" }
+]
