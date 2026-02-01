@@ -1,0 +1,28 @@
+[user]
+	name = squirrelly garden
+	email = git@squirrelly.garden
+[init]
+	defaultBranch = main
+[diff]
+	algorithm = histogram
+[general]
+
+[commit]
+	verbose = true
+[rerere]
+	enabled = true
+	autoupdate = true
+[core]
+	excludesfile = ~/.gitignore
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
+[pull]
+	rebase = true
+[alias]
+	fixup = commit --fixup HEAD
+	add-all = add .
+	force-push = push --force-with-lease
+[credential]
+	helper = store
