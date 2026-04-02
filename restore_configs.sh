@@ -13,3 +13,4 @@ cp -r gtk/catppuccin-mocha-mauve-standard ~/.local/share/themes
 
 echo "Restoring krita scheme..."
 cp -r krita/color-schemes/ ~/.local/share/krita
+
