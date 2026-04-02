@@ -13,7 +13,7 @@
 	enabled = true
 	autoupdate = true
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = /home/august/.gitignore
 [rebase]
 	autoSquash = true
 	autoStash = true
@@ -22,7 +22,10 @@
 	rebase = true
 [alias]
 	fixup = commit --fixup HEAD
-	add-all = add .
+	add-all = add -A
+	adda = add -A
+	rebasef = rebase -i HEAD~2
 	force-push = push --force-with-lease
+	commitm = commit -m
 [credential]
 	helper = store
