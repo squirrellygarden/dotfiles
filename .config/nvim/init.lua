@@ -5,6 +5,7 @@ require("config.lazy")
 
 require("catppuccin").setup({
     flavour = "mocha",
+    transparent_background=true,
     no_italic = false, -- Force no italic
     no_bold = false, -- Force no bold
     no_underline = false, -- Force no underline
