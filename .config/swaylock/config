@@ -1,0 +1,54 @@
+# swaylock-effects config
+# Place at: ~/.config/swaylock/config
+
+# Background — replace with your actual image path
+# If you'd rather use a solid color instead, comment out `image` and uncomment `color`
+image=~/.config/swaylock/wallpaper.png
+# color=1e1e2e
+
+# No blur — screen is hidden by the image
+ignore-empty-password
+
+# Clock & date
+clock
+timestr=%H:%M
+datestr=%A, %d %B
+
+# Font
+font=Monospace
+
+# Indicator ring
+indicator
+indicator-radius=80
+indicator-thickness=8
+
+# Ring colors (Catppuccin Mocha)
+ring-color=b4befe        # lavender
+ring-ver-color=a6e3a1    # green  (password verifying)
+ring-wrong-color=f38ba8  # red    (wrong password)
+ring-clear-color=fab387  # peach  (clearing input)
+
+# Key press highlight
+key-hl-color=cba6f7      # mauve
+bs-hl-color=f38ba8       # red
+
+# Inside of the ring
+inside-color=1e1e2e      # base
+inside-ver-color=1e1e2e
+inside-wrong-color=1e1e2e
+inside-clear-color=1e1e2e
+
+# Ring separator
+separator-color=00000000 # transparent
+
+# Text
+text-color=cdd6f4        # text
+text-ver-color=a6e3a1    # green
+text-wrong-color=f38ba8  # red
+text-clear-color=fab387  # peach
+
+# Line between ring and inside
+line-color=00000000      # transparent
+line-ver-color=00000000
+line-wrong-color=00000000
+line-clear-color=00000000
