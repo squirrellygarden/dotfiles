@@ -1,0 +1,124 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "height": 32,
+  "spacing": 4,
+  "modules-left": [
+    "tray",
+    "sway/workspaces",
+    "mpris"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "network",
+    "cpu",
+    "memory",
+    "custom/gpu",
+    "wireplumber#sink",
+    "wireplumber#source"
+  ],
+  "tray": {
+    "icon-size": 14,
+    "spacing": 8
+  },
+  "sway/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+        "focused": "●",
+        "default": "○"
+    },
+    "sort-by-number": true
+  },
+  "mpris": {
+	"format": "<span color ='#f2cdcd'>{player_icon}</span> {dynamic}",
+	"format-paused": "<span color ='#f2cdcd'>{status_icon}</span> <i>{dynamic}</i>",
+	"player-icons": {
+		"default": "▶"
+	},
+	"status-icons": {
+		"paused": "⏸"
+    },
+    "max-length": 128,
+    "interval":1
+  },
+  "cpu": {
+	"interval": 5,
+  "tooltip": false,
+	"format": "  {usage}%"
+  },
+
+  "memory": {
+    "interval": 30,
+	  "format": "  {percentage}%",
+    "tooltip": false
+  },
+"custom/gpu": {
+    "exec": "~/.config/waybar/scripts/custom.sh gpu",
+    "interval": 2,
+    "return-type": "json",
+    "format": "{}"
+},
+  "wireplumber#sink": {
+    "format": "{icon}  {volume}%",
+    "tooltip": false,
+    "format-muted": "󰝟",
+    "format-icons": ["", "", ""],
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "scroll-step": 5
+  },
+  "wireplumber#source": {
+    "node-type": "Audio/Source",
+    "tooltip": false,
+    "format": "  {volume}%",
+    "format-muted": "",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "scroll-step": 5
+  },
+  "network": {
+    "interval": 5,
+    "format": "",
+	"format-wifi": "{icon}  {signalStrength}%",
+	"format-ethernet": "",
+	"format-disconnected": "",
+    "format-icons": [
+      "󰤫",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
+    "tooltip-format": "<span color='#f38ba8'><b>{ifname}</b></span>\nDownload: {bandwidthDownBytes}\nUpload: {bandwidthUpBytes}",
+	"tooltip-format-wifi": "<span color='#f38ba8'><b>{essid} ({signalStrength}%) </b></span>\n<span color='#fab387'><b>Download:</b></span> {bandwidthDownBytes}\n<span color='#f9e2af'><b>Upload:</b></span> {bandwidthUpBytes}",
+	"tooltip-format-ethernet": "{ifname} \nDownload: {bandwidthDownBytes}\nUpload: {bandwidthUpBytes}",
+	"tooltip-format-disconnected": "Disconnected"
+  },
+  "clock": {
+	"format": "{:%H:%M}",
+	"format-alt": "{:%A, %B %d, %Y}",
+	"tooltip-format": "<tt><small>{calendar}</small></tt>",
+	"calendar": {
+		"mode"          : "year",
+		"mode-mon-col"  : 3,
+		"weeks-pos"     : "right",
+		"on-scroll"     : 1,
+		"on-click-right": "mode",
+		"format": {
+			"months":     "<span color='#cdd6f4'><b>{}</b></span>",
+			"days":       "<span color='#f9e2af'><b>{}</b></span>",
+			"weeks":      "<span color='#94e2d5'><b>W{}</b></span>",
+			"weekdays":   "<span color='#f5e0dc'><b>{}</b></span>",
+			"today":      "<span color='#cba6f7'><b><u>{}</u></b></span>"
+		}
+	},
+	"actions": {
+		"on-click-right": "mode",
+		"on-click-forward": "tz_up",
+		"on-click-backward": "tz_down",
+		"on-scroll-up": "shift_up",
+		"on-scroll-down": "shift_down"
+	}
+  }
+}

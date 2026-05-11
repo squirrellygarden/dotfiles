@@ -1,54 +1,47 @@
-# swaylock-effects config
-# Place at: ~/.config/swaylock/config
+# swaylock-effects config — Catppuccin Mocha
 
-# Background — replace with your actual image path
-# If you'd rather use a solid color instead, comment out `image` and uncomment `color`
+# Background
 image=~/.config/swaylock/wallpaper.png
-# color=1e1e2e
+scaling=fill
 
-# No blur — screen is hidden by the image
+# Behavior
 ignore-empty-password
+show-failed-attempts
+daemonize
 
-# Clock & date
+# Effects (swaylock-effects only)
+effect-blur=8x3
+effect-vignette=0.5:0.5
+fade-in=0.2
 clock
 timestr=%H:%M
 datestr=%A, %d %B
-
-# Font
-font=Monospace
+font=Iosevka Nerd Font
+font-size=16
 
 # Indicator ring
 indicator
-indicator-radius=80
-indicator-thickness=8
+indicator-radius=110
+indicator-thickness=10
+indicator-caps-lock
 
-# Ring colors (Catppuccin Mocha)
-ring-color=b4befe        # lavender
-ring-ver-color=a6e3a1    # green  (password verifying)
-ring-wrong-color=f38ba8  # red    (wrong password)
-ring-clear-color=fab387  # peach  (clearing input)
-
-# Key press highlight
-key-hl-color=cba6f7      # mauve
-bs-hl-color=f38ba8       # red
-
-# Inside of the ring
-inside-color=1e1e2e      # base
-inside-ver-color=1e1e2e
-inside-wrong-color=1e1e2e
-inside-clear-color=1e1e2e
-
-# Ring separator
-separator-color=00000000 # transparent
-
-# Text
-text-color=cdd6f4        # text
-text-ver-color=a6e3a1    # green
-text-wrong-color=f38ba8  # red
-text-clear-color=fab387  # peach
-
-# Line between ring and inside
-line-color=00000000      # transparent
-line-ver-color=00000000
-line-wrong-color=00000000
-line-clear-color=00000000
+line-color=1e1e2e80
+ring-color=19172400
+inside-color=1e1e2ee0
+key-hl-color=#89dceb
+separator-color=00000000
+text-color=e0def4
+text-caps-lock-color=""
+line-ver-color=#89dceb
+ring-ver-color=#89dceb
+inside-ver-color=1e1e2ee0
+text-ver-color=e0def4
+ring-wrong-color=38ba8
+text-wrong-color=38ba8
+inside-wrong-color=1e1e2ee0
+inside-clear-color=1e1e2ee0
+text-clear-color=e0def4
+ring-clear-color=9ccfd8
+line-clear-color=1e1e2e
+line-wrong-color=1e1e2e
+bs-hl-color=38ba8

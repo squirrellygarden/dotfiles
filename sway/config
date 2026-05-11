@@ -17,11 +17,7 @@ exec systemctl --user import-environment PATH
 exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 exec waybar
 exec ~/.cargo/bin/wpaperd -d
-exec swayidle -w \
-    timeout 300 'swaylock -f' \
-    timeout 600 'swaymsg "output * power off"' \
-    resume 'swaymsg "output * power on"' \
-    before-sleep 'swaylock -f'
+exec ~/.config/sway/scripts/swayidle.sh
 exec_always autotiling
 
 #############################
@@ -87,7 +83,7 @@ bindsym $mod+f exec $browser
 bindsym $mod+d exec discord
 bindsym $mod+n exec kitty -e nvim
 bindsym $mod+j layout toggle split
-bindsym $mod+l exec loginctl lock-session
+bindsym $mod+l exec swaylock -f
 bindsym $mod+s exec loginctl lock-session && sleep 1 && systemctl suspend
 
 # Volume
