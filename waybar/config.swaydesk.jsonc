@@ -15,7 +15,6 @@
     "network",
     "cpu",
     "memory",
-    "custom/gpu",
     "wireplumber#sink",
     "wireplumber#source"
   ],
@@ -55,12 +54,6 @@
 	  "format": "  {percentage}%",
     "tooltip": false
   },
-"custom/gpu": {
-    "exec": "~/.config/waybar/scripts/custom.sh gpu",
-    "interval": 2,
-    "return-type": "json",
-    "format": "{}"
-},
   "wireplumber#sink": {
     "format": "{icon}  {volume}%",
     "tooltip": false,
@@ -96,29 +89,6 @@
 	"tooltip-format-disconnected": "Disconnected"
   },
   "clock": {
-	"format": "{:%H:%M}",
-	"format-alt": "{:%A, %B %d, %Y}",
-	"tooltip-format": "<tt><small>{calendar}</small></tt>",
-	"calendar": {
-		"mode"          : "year",
-		"mode-mon-col"  : 3,
-		"weeks-pos"     : "right",
-		"on-scroll"     : 1,
-		"on-click-right": "mode",
-		"format": {
-			"months":     "<span color='#cdd6f4'><b>{}</b></span>",
-			"days":       "<span color='#f9e2af'><b>{}</b></span>",
-			"weeks":      "<span color='#94e2d5'><b>W{}</b></span>",
-			"weekdays":   "<span color='#f5e0dc'><b>{}</b></span>",
-			"today":      "<span color='#cba6f7'><b><u>{}</u></b></span>"
-		}
-	},
-	"actions": {
-		"on-click-right": "mode",
-		"on-click-forward": "tz_up",
-		"on-click-backward": "tz_down",
-		"on-scroll-up": "shift_up",
-		"on-scroll-down": "shift_down"
+	"format": "{:%H:%M - %A, %B %d, %Y}"
 	}
-  }
 }

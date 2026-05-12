@@ -8,6 +8,18 @@ echo "Restoring git files..."
 cp "$DOTFILES/git/.gitignore" ~/.gitignore
 cp "$DOTFILES/git/.gitconfig" ~/.gitconfig
 
+# Seed ~/.gitconfig.user with placeholders if it doesn't exist. The tracked
+# .gitconfig includes this file for machine-local identity (name, email),
+# keeping personal/work/school identities out of version control.
+if [ ! -f ~/.gitconfig.user ]; then
+    echo "Creating ~/.gitconfig.user (edit it with your name and email)..."
+    cat > ~/.gitconfig.user << 'EOF'
+[user]
+	name = your name here
+	email = your-email@example.com
+EOF
+fi
+
 if command -v hyprland > /dev/null 2>&1; then
     echo "Restoring hypr..."
     mkdir -p ~/.config/hypr
@@ -32,7 +44,8 @@ if command -v sway > /dev/null 2>&1; then
     echo "Restoring sway..."
     mkdir -p ~/.config/sway
     cp "$DOTFILES/sway/config" ~/.config/sway/config
-    cp -r "$DOTFILES/sway/scripts" ~/.config/sway/
+    mkdir -p ~/.config/sway/scripts
+    cp -r "$DOTFILES/sway/scripts/." ~/.config/sway/scripts/
 else
     echo "Sway not found, skipping sway."
 fi
@@ -45,13 +58,7 @@ else
     echo "Swaylock not found, skipping swaylock."
 fi
 
-if command -v wpaperd > /dev/null 2>&1 || [ -x "$HOME/.cargo/bin/wpaperd" ]; then
-    echo "Restoring wpaperd..."
-    mkdir -p ~/.config/wpaperd ~/.config/wpaperd/wallpapers
-    cp "$DOTFILES/wpaperd/wallpapers.toml" ~/.config/wpaperd/wallpapers.toml
-else
-    echo "wpaperd not found, skipping wpaperd."
-fi
+mkdir -p ~/.config/wallpapers
 
 echo "Restoring waybar..."
 mkdir -p ~/.config/waybar
@@ -67,7 +74,8 @@ else
 fi
 cp "$DOTFILES/waybar/mocha.css" ~/.config/waybar/mocha.css
 cp "$DOTFILES/waybar/style.css" ~/.config/waybar/style.css
-cp -r "$DOTFILES/waybar/scripts" ~/.config/waybar/scripts
+mkdir -p ~/.config/waybar/scripts
+cp -r "$DOTFILES/waybar/scripts/." ~/.config/waybar/scripts/
 
 echo "Restoring yazi..."
 mkdir -p ~/.config/yazi

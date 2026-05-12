@@ -1,6 +1,0 @@
-[default]
-path = "~/.config/wpaperd/wallpapers"
-duration = "30m"
-sorting = "random"
-mode = "fit"
-
