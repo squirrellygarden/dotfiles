@@ -13,6 +13,7 @@
 	autoupdate = true
 [core]
 	excludesfile = ~/.gitignore
+	editor = vim
 [rebase]
 	autoSquash = true
 	autoStash = true
