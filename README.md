@@ -1,10 +1,10 @@
 # dotfiles
-dotfiles for arch config (hyprland/waybar/yazi/kitty)
+Dotfiles for arch config (hyprland/waybar/yazi/kitty). There's also sway for my laptop.
 
-run `restore_configs.sh` to copy folders here into proper config dirs
+Run `restore_configs.sh` to copy folders here into proper config dirs. It's vibe coded atm (I apologise for my sin), might be broken.
 
 ## todo
-- fix wallpapers (move up dirs, somehow interleave better)
+- make less sloppy/vibe coded/messy
 - add quote script to waybar
-- neovimothy
+- finish neovimothy
 - add `update_configs.sh`. maybe even use a dotfiles manager. bleh
