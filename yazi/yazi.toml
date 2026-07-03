@@ -1,8 +1,228 @@
-[plugin]
-prepend_previewers = [
-  { name = "*.kra", run = "krita" }
-]
+# ============================================================================
+# Pretty renderers
+# ============================================================================
 
-prepend_preloaders = [
-  { name = "*.kra", run = "krita" }
-]
+[[plugin.prepend_previewers]]
+url =  "*.md"
+run = 'piper -- glow -w=$w "$1"'
+
+[[plugin.prepend_previewers]]
+mime = "application/json"
+run = 'piper -- jq -C . "$1"'
+
+[[plugin.prepend_previewers]]
+mime = "application/yaml"
+run = 'piper -- yq -P "$1"'
+
+[[plugin.prepend_previewers]]
+mime = "application/xml"
+run = 'piper -- xmllint --format "$1"'
+
+# ============================================================================
+# Everything text
+# ============================================================================
+
+[[plugin.prepend_previewers]]
+mime = "text/*"
+run = 'piper -- batcat --paging=never --style=numbers --color=always "$1"'
+
+# ============================================================================
+# Office documents
+# ============================================================================
+
+[[plugin.prepend_previewers]]
+url =  "*.docx"
+run = 'piper -- docx2txt "$1" -'
+
+[[plugin.prepend_previewers]]
+url =  "*.odt"
+run = 'piper -- odt2txt "$1"'
+
+[[plugin.prepend_previewers]]
+url =  "*.epub"
+run = 'piper -- pandoc -t plain "$1"'
+
+[[plugin.prepend_previewers]]
+url =  "*.xlsx"
+run = 'piper -- xlsx2csv "$1"'
+
+# ============================================================================
+# SQLite
+# ============================================================================
+
+[[plugin.prepend_previewers]]
+url =  "*.sqlite"
+run = 'piper -- sqlite3 "$1" ".tables"'
+
+[[plugin.prepend_previewers]]
+url =  "*.db"
+run = 'piper -- sqlite3 "$1" ".tables"'
+
+# ============================================================================
+# Archives
+# ============================================================================
+
+[[plugin.prepend_previewers]]
+mime = "application/zip"
+run = 'piper -- bsdtar -tf "$1"'
+
+[[plugin.prepend_previewers]]
+mime = "application/x-tar"
+run = 'piper -- bsdtar -tf "$1"'
+
+[[plugin.prepend_previewers]]
+mime = "application/gzip"
+run = 'piper -- bsdtar -tf "$1"'
+
+[[plugin.prepend_previewers]]
+mime = "application/x-xz"
+run = 'piper -- bsdtar -tf "$1"'
+
+[[plugin.prepend_previewers]]
+mime = "application/x-7z-compressed"
+run = 'piper -- bsdtar -tf "$1"'
+
+[[plugin.prepend_previewers]]
+mime = "application/vnd.rar"
+run = 'piper -- bsdtar -tf "$1"'
+
+# ============================================================================
+# Binaries
+# ============================================================================
+
+[[plugin.prepend_previewers]]
+mime = "application/executable*"
+run = 'piper -- readelf -a "$1" || 2>/dev/null || objdump -x "$1" 2>/dev/null || hexyl --border=none "$1"'
+
+[[plugin.prepend_previewers]]
+url =  "*.ko"
+run = 'piper -- modinfo "$1"'
+
+# ============================================================================
+# Git
+# ============================================================================
+
+[[plugin.prepend_previewers]]
+url = ".gitignore"
+run='piper -- batcat --language=gitignore --color=always "$1"'
+
+[[plugin.prepend_previewers]]
+url = ".gitattributes"
+run = 'piper -- batcat --language=gitattributes --color=always "$1"'
+
+[[plugin.prepend_previewers]]
+url = ".gitmodules"
+run = 'piper -- git config --list --file "$1"'
+
+
+# ============================================================================
+# ISO images
+# ============================================================================
+
+[[plugin.prepend_previewers]]
+url =  "*.iso"
+run = 'piper -- isoinfo -d -i "$1"'
+
+# ============================================================================
+# PCAP captures
+# ============================================================================
+
+[[plugin.prepend_previewers]]
+url =  "*.pcap"
+run = 'piper -- tcpdump -nn -r "$1" -c 100'
+
+[[plugin.prepend_previewers]]
+url =  "*.pcapng"
+run = 'piper -- tcpdump -nn -r "$1" -c 100'
+
+# ============================================================================
+# Packages
+# ============================================================================
+
+[[plugin.prepend_previewers]]
+url = "*.rpm"
+run='piper -- rpm -qip "$1"'
+
+[[plugin.prepend_previewers]]
+url = "*.AppImage"
+run='piper -- file "$1"'
+
+[[plugin.prepend_previewers]]
+url = "*.snap"
+run='piper -- unsquashfs -ll "$1"'
+
+[[plugin.prepend_previewers]]
+url = "*.flatpak"
+run='piper -- ostree summary -v "$1"'
+
+[[plugin.prepend_previewers]]
+url =  "*.deb"
+run = 'piper -- dpkg-deb -I "$1"'
+
+# ============================================================================
+# Virt disks
+# ============================================================================
+
+[[plugin.prepend_previewers]]
+url = "*.qcow2"
+run='piper -- qemu-img info "$1"'
+
+[[plugin.prepend_previewers]]
+url = "*.vmdk"
+run='piper -- qemu-img info "$1"'
+
+[[plugin.prepend_previewers]]
+url = "*.vdi"
+run='piper -- qemu-img info "$1"'
+
+[[plugin.prepend_previewers]]
+url = "*.vhd"
+run='piper -- qemu-img info "$1"'
+
+[[plugin.prepend_previewers]]
+url = "*.vhdx"
+run='piper -- qemu-img info "$1"'
+
+# ============================================================================
+# Crypto
+# ============================================================================
+
+[[plugin.prepend_previewers]]
+url = "*.gpg"
+run='piper -- gpg --list-packets "$1"'
+
+[[plugin.prepend_previewers]]
+url = "*.pem"
+run='piper -- openssl x509 -text -noout -in "$1"'
+
+[[plugin.prepend_previewers]]
+url = "*.crt"
+run='piper -- openssl x509 -text -noout -in "$1"'
+
+[[plugin.prepend_previewers]]
+url = "*.cer"
+run='piper -- openssl x509 -text -noout -in "$1"'
+
+[[plugin.prepend_previewers]]
+url = "*.csr"
+run='piper -- openssl req -text -noout -in "$1"'
+
+[[plugin.prepend_previewers]]
+url = "*.p12"
+run='piper -- openssl pkcs12 -info -nokeys -in "$1"'
+
+[[plugin.prepend_previewers]]
+url = "*.pub"
+run='piper -- ssh-keygen -lf "$1"'
+
+[[plugin.prepend_previewers]]
+url = "id_*"
+run='piper -- ssh-keygen -lf "$1"'
+
+# ============================================================================
+# Fallback
+# ============================================================================
+
+[[plugin.append_previewers]]
+url = "*"
+run = 'piper -- hexyl --border=none --terminal-width=$w "$1"'
