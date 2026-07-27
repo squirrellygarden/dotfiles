@@ -225,4 +225,4 @@ run='piper -- ssh-keygen -lf "$1"'
 
 [[plugin.append_previewers]]
 url = "*"
-run = 'piper -- hexyl --border=none --terminal-width=$w "$1"'
+run = 'piper -- hexyl --border=none "$1"'
