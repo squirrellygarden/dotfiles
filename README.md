@@ -13,4 +13,5 @@ Dotfiles for my setup.
 - migrate hypr to latest lua version
 - add hypr dots
 - create save/restore tool
+- add fonts
 
