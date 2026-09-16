@@ -1,8 +1,0 @@
-#!/bin/sh
-
-exec swayidle -w \
-    timeout 300 'swaylock -f' \
-    timeout 600 'swaymsg "output * power off"' \
-    resume 'swaymsg "output * power on"' \
-    before-sleep 'swaylock -f' \
-    lock 'swaylock -f'
