@@ -1,10 +1,11 @@
 [include]
 	path = ~/.gitconfig.user
+
 [init]
 	defaultBranch = main
+
 [diff]
 	algorithm = histogram
-[general]
 
 [commit]
 	verbose = true
@@ -14,12 +15,16 @@
 [core]
 	excludesfile = ~/.gitignore
 	editor = vim
+
 [rebase]
 	autoSquash = true
 	autoStash = true
 	updateRefs = true
-[pull]
-	rebase = true
+
+[push]
+        autoSetupRemote = true
+        default = current
+
 [alias]
 	fixup = commit --fixup HEAD
 	add-all = add -A
@@ -29,5 +34,6 @@
 	commitm = commit -m
 	undo = reset --soft HEAD~1
 	st = status
+
 [credential]
 	helper = store
