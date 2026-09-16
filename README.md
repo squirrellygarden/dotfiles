@@ -1,10 +1,16 @@
 # dotfiles
-Dotfiles for arch config (hyprland/waybar/yazi/kitty). There's also sway for my laptop.
+Dotfiles for my setup.
 
-Run `restore_configs.sh` to copy folders here into proper config dirs. It's vibe coded atm (I apologise for my sin), might be broken. `install_sway.sh` is meant to give a reproducibleish build of the dotfiles for the Ubuntu target on my laptop but it's broken (vibe coded, again, I apologise for my sins).
+```
+.
+├── desktop_environ/ # gnome, hyprland, gtk
+├── misc/ # anything else
+├── productivity/ # programming, terminal, writing
+└── tools/ # shell utilities
+```
 
 ## todo
-- make less sloppy/vibe coded/messy
-- add quote script to waybar
-- finish neovimothy
-- add `update_configs.sh`. maybe even use a dotfiles manager. bleh
+- migrate hypr to latest lua version
+- add hypr dots
+- create save/restore tool
+
